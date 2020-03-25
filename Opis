@@ -1,0 +1,23 @@
+Programowanie obiektowe- Cwiczenie 2
+Sprawozdanie:
+Zaprojektowałam klasy do systemu wypożyczalni multimedialnej wykorzystując dziedziczenie oraz konstruktory.
+1) W punkcie pierwszym zadania stworzyłam klasę główną "WypozyczalniaMultimedialna.java" oraz klasę "Artykuł",
+ od której klasy produktów wypożyczalni tj "Filmy.java", "Ksiazki.java", "PlytyMuzyczne.java", "Audiobooki.java",
+ "Ebooki.java" niejako "czerpały" przez użycie zwrotu "extends".
+
+2)Punkt drugi opracowałam stosując podprogram informujący użytkownika o obciążeniu wynikającemu z wypoożyczenia
+dowolnego produktu na więcej niż 14 dni. Program zwraca należność jaką użytkownik powinien uiścić przelewem na
+konto bankowe wypożyczalni. W punkcie skorzystałam z pętli if-else oraz nieznanej mi wczesniej funcki Date().
+
+3)W punkcie trzecim zdecydowałam się na zastosowanie postawowych wejść scan.nextLine() oraz scsn.nextInt(),
+które umożliwiają wprowadzenie do programu przez uzytkowika wartości z klawiatury. W owym punkcie również skorzystałam
+z pętli if-else oraz if-else if-else. Zaproponowałam wybór przez użytkownika jednej z dwóch możliwości- logowanie lub
+rejestracja. W pzypadku logowania- program sprawdza, czy użytkownik posiada wobec wypozyczalni długi.
+W przypadku rejestracji-  sprawdzenie salda wypozyczen nie odbywa sie ponieważ jest to pierwsza wizyta uzytkownika w
+multimedialnej wypozyczalni.
+
+W przygotowaniu programu pomogła mi instrukcja oraz liczna poradniki internetowe zamieszczone w serwisie Youtube.com
+z zakresu dziedziczenia oraz pracy z konstruktorami m.in
+https://www.youtube.com/watch?v=RdOcG2s8kII
+https://www.youtube.com/watch?v=yB1G6E05v2U
+https://www.youtube.com/watch?v=XSGxCUUWCl4
