@@ -1,6 +1,7 @@
 <application>
   <component name="FileTypeManager" version="17">
     <extensionMap>
+      <mapping pattern="OpisLab2" type="PLAIN_TEXT" />
       <mapping pattern="Opis" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
