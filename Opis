@@ -1,0 +1,103 @@
+Eliza Hartel
+Programowanie obiektowe- Cwiczenie 3
+Sprawozdanie:
+
+     Zadanie 1.
+
+	 Na podstawie interfejsu:
+
+	public interface Sortable{
+
+	    int[] sort(int[]tab);
+	    double_step_counting();
+	}
+
+	Owy interfejs jest definicją abstrakcyjnego typu posiadającą jedynie ściśle określone instrujkcje, a nie dane.
+
+	Zaimplementowałam dwie klasy realizujące sortowanie odpowiednio bąbelkowe i kubełkowe zliczające sumę
+	wykonywanych porównań przez zastosowanie słowa kluczonego "implements".
+	Klasy te implementują dany inerfejs Sortable ponieważ w klasach tych zdefiniowane są wszystkie metody interfejsu.
+
+	Utworzyłam również klasę główną(metoda Main) zatytuowaną "glownaKlasa".
+
+	Jako dane wejściowe przygotowałam 200 elementową tablicę z liczbami naturalnymi w randomowej kolejności:
+
+	int[] tab = new int[]{
+                    1, 5, 66, 44, 34, 2, 3, 4, 5, 66, 87, 43, 21, 56, 12, 4, 5, 9, 12,
+                    11, 34, 66, 54, 23, 4, 5, 8, 45, 85, 29, 12, 33, 4, 5, 7, 2, 1, 3,
+                    4, 3, 22, 44, 90, 92, 4, 6, 7, 88, 99, 56, 27, 57, 1, 1, 22, 34, 3, 4,
+                    3, 4, 8, 9, 77, 89, 8, 8, 8, 8, 8, 8, 9, 12, 11, 13, 14, 18, 33, 33, 3,
+                    3, 4, 55, 33, 44, 33, 2, 3, 4, 7, 6, 3222, 445, 66543, 3442, 52, 535, 65,
+                    456, 563, 245, 653, 653, 635, 653, 875, 787, 675, 7645, 446, 35, 75, 35,
+                    53, 3, 57, 555, 4, 2, 31, 42, 21, 86, 47, 54, 54, 32, 14, 35, 24, 14, 35, 57,
+                    240, 35, 421, 57, 75, 75, 36, 75, 35, 75, 14, 68, 24, 2, 4, 67, 88, 99, 56, 27,
+                    57, 1, 1, 22, 34, 3, 4, 3, 4, 8, 9, 77, 89, 8, 8, 8, 8, 8, 8, 9, 12, 11, 13, 14, 18,
+                    33, 33, 3, 4, 55, 33, 44, 33, 2, 3, 4, 7, 43, 53, 2532, 2532, 523, 424, 22, 22, 111,33
+            };
+
+     mogłam również przygotować tablicę dzięki programowi:
+
+      Random rd = new Random();
+             int[] tab = new int[200];
+             for (int i = 0; i < tab.length; i++) {
+                tab[i] = rd.nextInt();
+                 System.out.println(tab[i]);
+             }
+       zdecydowałam się jednak na ręczne utworzenie tablicy, ponieważ program generujący tablicę z randomowymi
+       liczbami- za każdym razem generwuje inny zestaw liczb. W mojej opini program straciłby na wiarygodności podczas
+       stosowania zabiegów sortowania. W przygadku ręcznego wpisywania liczb do tablicy- wartości liczb na wzystkich
+       miejscach zawsze byłyby takie same, a liczby byłyby ustawione w tej samej kolejności.
+
+       Przy wyborze przez użytkownika zastosowałam znaną mi wcześniej Klasę Scanner, która jest podstawowym wejściem.
+       (W tym przypadku typu int- ponieważ operujemy na liczbach- program prosi o wpisanie konkretnych liczb w celu
+       dokonania wyboru- jakie sortowanie tablicy chcemy zatosować)
+
+               Scanner scanner = new Scanner(System.in);
+               int wybor = scanner.nextInt();
+
+        W celu wybrania sposobu sortowania tablicy użyłam instrukcji wielokrotnego wyboru switch-case,
+        z którą wcześniej miałam okazję zapoznać się programując w języku C++.
+
+        W klasach realizujących sortowanie bąbelkowe oraz kubełkowe w dużej mierze zastosowałam instrukcję warunkową
+        "if...else"- sterującą kodem w zależności od warunków, które muszą być spełnione oraz pętlę typu wyliczeniowego
+         "for", gdzie zstosowałam licznik w postaci liczby całkowitej int zmieniany o pewien krok dopóki nie zostanie
+         spełniny z góry określony warunek zakończenia pętli.
+
+         Liczenie ilosci porownan liczb:
+         -sortowanie bąbelkowe
+        Przy uruchomieniu funkji sortowania(wywolania funkcji sort)- ustawiłam licznik licz_porownania na 0 ,
+        a nastepnie w  petli zagniezdzonej program zlicza ilość iteracji pętli.
+        Funkcja double step_counting zwraca to co zostalo oblicznoe.
+        -sortowanie kubełkowe
+        Przy uruchomieniu funkji sortowania(wywolania funkcji sort)- ustawiłam licznik licz_porownania na 0 ,
+        a nastepnie program zlicza ilość iteracji pętli szukającej maksymalnej wartosci w tablicy- nastepnie program
+        liczy ilosc utworzonych kubelkow, a nastpnie ilosc wywolań zagniezdzonych petli.
+        Funkcja double step_counting zwraca to co zostalo obliczne.
+
+        Pragnę wysnuć również wniosek, iż sortowanie kubełkowe wykonuje znacznie mniejszą ilość porównań.
+
+        Podczas pisania owego programu postanowiłam zastosować komentarze- co być może poprawi czytelność kodu
+        podczas sprawdzania dzieląc go na pewnego rodzaju "etapy".
+
+
+	    W przygotowaniu programu pomogła mi instrukcja do laboratorium oraz liczne poradniki internetowe zamieszczone
+	    w serwisie youtube.com z zakresu pól i metod staycznych, interfejsów, polimorfizmu, sortowania bąbelkowego,
+	    sortowania kubełkowego oraz liczne blogi poświęcone programowaniu m.in
+
+	    https://javastart.pl/baza-wiedzy/programowanie-obiektowe/interfejsy
+
+	    https://www.youtube.com/watch?v=4s44rXRdmhQ
+
+	    https://www.youtube.com/watch?v=hLR-tb8bM78
+
+        Zadanie 2.
+
+        Interfejs Iterable jest jednym z głównym z kolekcji interfejsów Java API.
+        Klasa, która implementuje interfejs Java Iterable, może być iterowana za pomocą pętli Java for-each.
+        Przez iterację rozumiemy, iż jej elementy wewnętrzne mogą być iterowane
+
+        Interfejs Closable to źródło lub miejsce docelowe danych, które można zamknąć.
+        Wywoływana jest metoda close w celu zwolnienia zasobów przechowywanych przez obiekt (takich jak otwarte pliki).
+
+
+
