@@ -1,0 +1,130 @@
+Eliza Hartel
+Programowanie obiektowe- Cwiczenie 4
+Sprawozdanie:
+
+     Zadanie 1.
+
+    Utworzyłam klasę główną "Zadanie1". Użyłam skanera:
+
+    Scanner scanner = new Scanner(System.in);
+            String wpisana = scanner.nextLine();
+
+    aby użytkownik mógł wpisać z klawiatury słowo lub słowa do konwersji.
+
+    Do obsługi wyjątków użyłam bloku try-catch-finally.
+    W sekcji "try" umieściłam pętlę for:
+
+    for (int i = 0; i < wpisana.length(); i++) {
+                     int liczba = Integer.parseInt(Character.toString(wpisana.charAt(i)));
+                    System.out.print(liczba);
+                }
+
+     w której użyłam metody Inteeger.parseInt. Metoda ta zwraca wartość całkowitą reprezentowaną przez argument string
+     w podanej podstawce.Zwraca wartość całkowitą reprezentowaną przez argument string.
+
+     Jednak jeśli miałabym sama dokonywać wyboru wolałabym skorzystać z metody znakowej Java getNumericValue (),
+     która zwraca wartość int określonego znaku. Jeśli znak nie ma żadnej wartości int, zwracane jest -1.
+     Jeśli znak ma wartość liczbową, której nie można przedstawić jako nieujemną liczbę całkowitą, zwracane jest -2.
+     Zamieniłabym więc linijkę:
+
+     int liczba = Integer.parseInt(Character.toString(wpisana.charAt(i)));
+     na
+     int liczba = Character.getNumericValue(wpisana.charAt(i));
+
+     Program przynosi wtedy lepsze rezultaty...
+
+    Sekcja "try" zabezpiecza swoją zawartość- w tym przypadku pętlę for przez szczególnym zachowaniem oprogramowania
+    czyli wystąpieniem wyjątku.
+
+    Kolejna sekcja- tj. "catch" zostanie pominięta jeśli wyjątek nie wystąpi.
+    Jeśli jednak wyjątek wystąpi sekcja "catch" drukuje tekst "Błąd podczas konwersji liczby. Spróbuj ponownie."
+    dzięki zastosowaniu metody System.out.println
+
+    Ostatnia sekcja jaka się wykona to "finally" - wykonuje się na bez względu na to czy uprzednio wystąpił wyjątek
+    czy też nie. W owej sekcji użyłam instrukcji warunkowej if-else, która pozwala sterować przebiegiem programu
+    w zależności od warunków, które muszą być spełnione.
+
+    Jeśli wyjątki nie wystąpią- wykona się tylko sekcja "try" zostanie więc "wydrukowane":
+    "\nKonwersja zakończona pomyślnie.", w innym wypadki gdy wyjątki wystąpią zostanie "wydrukowane":
+    "Wystąpił błąd podczas konwersji."
+
+
+     Zadanie 2.
+
+     W zadaniu 2 w kodzie programu stworzyłam tablicę posiadającą 10 odgórnie wpisanych pzeze mnie elementów.
+     Dzięki użyciu własności tablicy "tab.length" program zwraca użytkownikowi ile elementów liczy owa tablica.
+
+     Następnie utworzyłam również pętlę for:
+
+      for (int i = 0; i < tab.length; i++) System.out.print(tab[i] + " ");
+
+      a po niej polecenie: System.out.print(tab[i] + " " , które niejako czerpie z pętli for wyznaczające warunki
+      w jaki sposób mają być wyświetlane elementy tablicy- w tym przypadku mają zaczynać się od pierwszego elementu
+      tablicy (miejsce nr 0), ma wyświetlać kolejne elementy tablicy, aż do samego końca (warunek i <tab.length).
+
+      Polecenie:
+      System.out.println("Wpisz numer od 1 do " + tab.length);
+      informuje użytkonika spośród jakiego zakresu  może wybrać liczbę do wpisania do konsoli.
+
+      Polecenie:
+      Scanner scanner = new Scanner(System.in);
+              int wpisana = scanner.nextInt();
+      zczytuje wprowadzoną przez użytkownika liczbę- w tym przypadku cyfrę.
+
+      W następnej części programu wykorzystałam również znajomą mi pętlę if-else, która zwraca odpowiedni komunikat
+      w zależności od wartości liczbowej zmiennej, która została pobrana przez program od użytkownika.
+
+      Jeśli wpisana wartość jest mniejsza lub równa liczbie elementów tablicy- program informuje użytkownika o
+      prawidłowym przebiegu programu i wówcas program się wykonuje- nasz program "drukuje" pożądany element tablicy.
+
+      Natomiast, gdy wpisana przez użytkownika liczba wybiega poza zakres (ilość elementów)- zadziała polecenie else
+      "printujące" informację o nieprawidłowym wpisaniu wartości.
+
+       Linijka:
+       System.out.println(wpisana + "-ty element tablicy to: " + tab[wpisana-1]);
+       Zwraca użytkownikowi pożądany element tablicy. W programowaniu elementy tablicy numerowane są od 0 do n, dlatego
+       więc skorzystałam z zapisu:  tab[wpisana-1] - wyświetli on elementy tablicy potraktowane przez przeciętnego
+       użytkownika jako liczone kolejno do 1 do n.
+
+      Zadanie 3
+
+       Zmodyfikowałam program 1-3 z laboratorium nr 2, który uprzednio wykorzystywał dziedziczenie.
+       Tym razem postanowiłam zastosować i dziedziczenie i kompozycję. Stawiłam więc na zastosowanie kompozycji w
+       fragmentach programu- klasa Ksiazki oraz klasa PlytyMuzyczne.
+
+       W klasie głównej "WypozyczalniaMultimedialna"
+
+       Dla lepszej czytelności oraz "oszczędeniu" linijek kodu utworzyłam nowy obiekt Ksiazki oraz przekazal jejo
+       własności przez konstruktor. Dla obiektu PlytyMuzyczne zrobiłam dokładnie tak samo.
+
+       W klasie Ksiazki
+
+       Umieściłam konstruktor wraz z parametrami
+       public Ksiazki(String name, int nrWewnetrznyArtykulu,...);
+
+       Utworzyłam nowy obiekt klasy artykul
+        artukul = new Artykul();
+
+       Następnie przypisałam przekazane parametry
+       artukul.name = name;
+       artukul.nrWewnetrznyArtykulu = nrWewnetrznyArtykulu;...
+
+       następnie utworzyłam metodę wypisyjącą dane artukułu
+       public void danenrWewnetrznychArtykulu(){
+       artukul.danenrWewnetrznychArtykulu();
+       }
+
+       Dla klasy PlytyMuzyczne postąpiłam analogicznie kierując się owym schematem zachowując indywidualne zmienne.
+
+	    W przygotowaniu programu pomogła mi instrukcja do laboratorium, dokumentcja ze strony Oracle oraz liczne
+	    poradniki internetowe zamieszczone w serwisie youtube.com zawierające infoormacje na temat obsługi wyjątków oraz
+	    dziedziczenia i kompozycji oraz liczne blogi poświęcone m.in. metodzie Inteeger.parseInt()
+
+	    https://achilles.tu.kielce.pl/portal/Members/596d88a5187b42e2bad090bb66227a25/pub/java/new/instrukcja_laboratoryjna_4.html
+
+        https://www.w3schools.com/jsref/jsref_parseint.asp
+
+        https://javastart.pl/baza-wiedzy/programowanie-obiektowe/wyjatki-blok-try-catch
+
+
+
