@@ -1,0 +1,89 @@
+Eliza Hartel
+Programowanie obiektowe- Cwiczenie 5
+Sprawozdanie:
+
+Dokładny opis przebiegudo zadań 1-7 instrukcji do laboratorium 1 zawarłam w folderze "Projekt1" mojego
+zdanego repozytorium. W tym pliku opisowym zdecydowałam się jednak na przedstawienie kroków dotyczących edycji
+wykonanych programów, które poddałam testowaniu jednostkowemu. Umożliwiło to testowanie metod, klas czy
+funkcjonalności w oderwaniu od reszty kodu.
+
+
+Zadania do wykonania:
+
+Zadanie 1
+Napisz program, który zwróci prawdę, jeśli jedna z dwóch temperatur jest mniejsza niż 100
+
+Program główny: Temperatura.java
+    W programie zdecydowałam się na usunięnie przeważającego wcześniej tekstu drukowanego przez metodę
+    System.out.println. Pozostały kod jest jedynie esencją- posiada "czysty" algorytm porównywania zmiennych
+    typu int względem wartości 100, od której wartości podstawiane za zmienne mają być mniejsze.Skorzystałam tu
+    z instrukcji if-else zwracającej zwracającej wyniki w zależności od przebiegu programu.
+
+Program testowy: Test1.java
+   Klasa Test1 zawiera dwa testy.
+   1. Sprawdzenie wykonania programu- czy wynik jest prawdą tj czy wprowadzana liczba jest faktycznie mniejsza od 100
+   jako wartości zmiennej wprowadzam dwie liczby będące proponowaną temperaturą, które są faktycznie mniejsze od 100.
+   Zatem program zwróci prawdę
+   2. Sprawdzenie wykonania programu- czy wynik jest fałszem tj czy wprowadzana liczba nie spełnia założeń autora
+   zadania tj. czy liczby wprowadzane zwracające fałsz nie są mniejsze od 100
+
+
+Zadanie 2
+Napisz program, który zwróci prawdę, jeśli sekwencja liczb 1, 2, 3 pojawi się gdzieś w tablicy liczb całkowitych
+
+    Usunęłam z programu liczne metody System.out.println "drukujące" na okno konsoli teksty- nie było to
+    najbardziej koniecznym elementem programu.Zostawiłam tylko te fragmenty, bez których algorytm mógłby nie istnieć.
+
+Program główny: SekwencjaLiczb.java
+    Zawiera ścisły algorytm sprawdzający trzy kolejne elementy tablicy czy posiadają wartości kolejno 1,2,3.
+    Algorytm ten zbudowałam stosując pętlę for oraz korzystająv z instrukcji warunkowej if-else.
+
+Program testowy: Test6.java
+    W programie utworzyłam dwa testy sprawdzające występowanie dwóch zdarzeń:
+    1. Gdy sekwencja liczb 1,2,3 występuje
+    Wprowadziłam tablice używaną w pierwotnym programie (utworzonym podczas laboratorium 1), która posida
+    około 210 elementów zawierającą sekwencję liczb- program zwraca więc prawdę
+    2. Gdy sekwecja liczb 1,2,3 nie wystęuje
+    Wprowadziłam tablicę, w której nie występuje sekwencja liczb.
+    Następuje testowanie kodu na brak obecności sekwencji liczb 1,2,3- program zwraca więc prawdę
+
+
+Zadanie 3
+Napisz program, który zwróci połowę ciągu znaków ze Stringa
+
+W programie zrezygnowalam z wczelkich "wydruków" tekstu, które nie były najważniejszą częścią.
+Skupiłam się na wykorzystaniu części z algorytmem.
+
+Program główny: PolowaZnakow.java
+    Na początku w klasie PolowaZnakow deklaruje zmienną slowo. Zmienna ja korzysta z metody lenght.
+    Metoda length () zwraca liczbę znaków obecnych w ciągu.Zmienna "a" to zmienna typu int przechowująca
+    długość wprowadzanego słowa.
+    Zmienna "b" typu int posiada wartość równą połowie wartości zmiennej "a"- tj zawiera połowę liczby znaków
+    wprowadzanego słowa z zaokrągleniem w dół.
+    Program zwraca wartość zmiennej b przez zastosowanie metody return.
+
+Program testowy: Test2.java
+    Klasa Test2 "testuje" wyniki dla dwóch przykładowych słów.
+    Użytkownik może wprowadzić słowo oraz liczbę będącą w rzeczywistości połową ilości liter tworzących slowo.
+    np. zyrafa - słowo liczące 6 liter, tak więc połowa liter w tym słowie to 3- użytkownik wprowadza wartość 3,
+    następnie sprawdza czy dana liczba pokrywa się z wynikiem programu.
+
+Zadanie 4
+Napisz program, który zwróć nową tablicę z elementami w odwrotnej kolejności, np. {1, 2, 3} stanie się {3, 2, 1}.
+
+Program główny: OdwrotnaTablica.java
+    Program zawierający algorytm  zwracający tablicę w odrotnej kolejności przez zastosowanie pętli for.
+    Użyłam również metodę return zwracają zmienną "tab"- jest odczytana od tyłu tablica.
+
+Program testowy: Test5.java
+    Klasa posiada dwa testy dla dwóch odrębnych tablic. Zadaniem użytkownika jest wprowadzenie kolejnych wartości
+    tablicy "wejściowej" oraz "wyjściowej". Jeśli użytkownik wpisze elementy tablicy według algorytmu programu
+    głównego program wykona się poprawnie.
+
+Podczas wykonania programów posiłkowałam się instrukcjami do laboratorium oraz wszelkich poradników w serwisie
+youtube.com, m.in. :
+
+https://www.youtube.com/watch?v=QDFI19lj4OM
+https://www.youtube.com/watch?v=Zug8zYR0SmA
+https://www.youtube.com/watch?v=vr3D3cUGeis
+
