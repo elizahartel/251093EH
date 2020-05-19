@@ -1,0 +1,36 @@
+Eliza Hartel, 251093, K00-28b
+Programowanie obiektowe- laboratorium
+Cwiczenie 6- String
+
+Zadanie 1
+W podpunkcie pierwszym zadania zmieniłam nazwę endpointa z greeting na bye.
+
+Zadanie 2
+Aby dobrze rozdzielić kolejne zadania wykałam je w osobnych endpointach.
+
+Zadanie 3
+Aby zwrócić przykładowy wiek osoby zadeklarowałam statyczną zmienną typu int przetrzymującą wiek przykładowej
+osoby. Stworzyłam również endpoint reagujący na zapytanie httpget zwracający wartość powyżej zadeklarowanej
+zmiennej przechowującej wiek.
+
+Zadanie 4
+Zadeklarowany przeze mnie endpoint jako parametry wejściowe przyjmuje ID imię oraz wiek osoby, następnie
+tworzony jest nowy obiekt klasy Person  posiadający powyższe parametry. W kolejnym kroku zwracany jest
+ten obiekt ja JSON.
+
+Na potrzeby działania powyższego endpointu stworzyłam klasę Person, aby móc przetrzymywać w niej przekazane
+parametry.
+
+Zadanie 5
+Ten endpoint jako parametr wejściowy przyjmuje imię danej osoby, następnie sprawdzana jest ostatnia litera
+tego imienia- czy jest ona literką "a". Jeżeli tak- zwracane jest słowo "Kobieta", a w przeciwnym wypadku
+"Mężczyzna".
+
+Zadanie 6
+Owy endpoint jako parametr oczekuje tekstu. Zadaniem tej funkcji jest sprawdzić czy zadeklarowana wyżej
+zmienna template zawiera w sobie tekst, który został przesłany jako parametr do endpointa.
+
+Źródła:
+https://spring.io/guides/gs/rest-service/
+https://www.tutorialspoint.com/spring/index.htm
+https://www.javatpoint.com/spring-tutorial
