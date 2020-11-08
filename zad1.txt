@@ -1,0 +1,202 @@
+//Program obsługi przycisku
+
+
+
+#define F_CPU 11059200UL
+
+#include <avr/io.h>
+
+#include <util/delay.h>
+
+
+
+// ******************* definicje dla preprocesora ******************* //
+
+
+
+// diody LED
+
+
+
+#define LED_PINS (1<<PA7)|(1<<PA6)|(1<<PA5)|(1<<PA4)|(1<<PA3)|(1<<PA2)|(1<<PA1)|(1<<PA0)	// definicja pinu do którego podłączone są diody
+
+										
+
+// klawisz
+
+
+
+#define KEY_PIN0 (1<<PC0)			// definicja pinu do którego podłączony jest klawisz 0
+
+#define KEY_DOWN0 !(PINC & KEY_PIN0)	// makro sprawdzające czy jest stan niski
+
+#define KEY_PIN1 (1<<PC1)			// definicja pinu do którego podłączony jest klawisz 1
+
+#define KEY_DOWN1 !(PINC & KEY_PIN1)	// makro sprawdzające czy jest stan niski
+
+#define KEY_PIN2 (1<<PC2)			// definicja pinu do którego podłączony jest klawisz 2
+
+#define KEY_DOWN2 !(PINC & KEY_PIN2)	// makro sprawdzające czy jest stan niski
+
+
+
+
+
+uint8_t klawisz_wcisniety0(void); 	// deklaracja funkcji
+
+uint8_t klawisz_wcisniety1(void); 	// deklaracja funkcji
+
+uint8_t klawisz_wcisniety2(void); 	// deklaracja funkcji
+
+
+// ********************** pętla główna main() ********************** //
+
+
+
+int main(void)
+
+{
+
+	// ****** inicjalizacja *********
+
+
+
+	DDRA |= LED_PINS;		// kierunek pinów portu A – wyjściowy
+
+	PORTA |= LED_PINS;		// wyłączenie diod LED
+
+	DDRC &= ~KEY_PIN0;		// kierunek pinu PC0 - wejściowy
+
+	PORTC |= KEY_PIN0;		// podciągnięcie pinu do VCC
+
+	DDRC &= ~KEY_PIN1;		// kierunek pinu PC1 - wejściowy
+
+	PORTC |= KEY_PIN1;		// podciągnięcie pinu do VCC
+
+	DDRC &= ~KEY_PIN2;		// kierunek pinu PC2 - wejściowy
+
+	PORTC |= KEY_PIN2;		// podciągnięcie pinu do VCC
+
+
+
+	uint8_t pom = 0;	// definicja zmiennej licznik
+
+
+
+				
+
+	// ****** pętla główna programu  *********
+
+
+
+	while(1)
+
+	{
+
+		if(klawisz_wcisniety0())  			// jeśli klawisz wciśnięty
+
+		{
+
+
+			 PORTA = 0xFF;
+
+			 
+
+		}
+
+		if(klawisz_wcisniety1())  			// jeśli klawisz wciśnięty
+
+		{
+
+
+
+			 PORTA = 0;
+
+			 
+
+		}
+
+		if(klawisz_wcisniety2())  			// jeśli klawisz wciśnięty
+
+		{
+
+			 pom = PORTA;
+
+			 PORTA = !pom;
+
+			 
+
+		}
+
+
+	}
+
+}		
+
+
+
+uint8_t klawisz_wcisniety0(void) 	// definicja funkcji
+
+									// nie posiada argumentów, zwraca wynik 0 lub 1
+
+{
+
+	if(KEY_DOWN0)					// klawisz wciśnięty?
+
+	{
+
+		_delay_ms(80);				// czas drgania styków
+
+		if(KEY_DOWN0) return 1;		// jeśli wciśnięty zakończ funkcję - rezultat = 1
+
+	}
+
+
+  return 0;							// jeśli niewciśnięty zakończ funkcję - rezultat = 0
+
+}
+
+
+uint8_t klawisz_wcisniety1(void) 	// definicja funkcji
+
+									// nie posiada argumentów, zwraca wynik 0 lub 1
+
+{
+
+	if(KEY_DOWN1)					// klawisz wciśnięty?
+
+	{
+
+		_delay_ms(80);				// czas drgania styków
+
+		if(KEY_DOWN1) return 1;		// jeśli wciśnięty zakończ funkcję - rezultat = 1
+
+	}
+
+
+  return 0;							// jeśli niewciśnięty zakończ funkcję - rezultat = 0
+
+}
+
+
+uint8_t klawisz_wcisniety2(void) 	// definicja funkcji
+
+									// nie posiada argumentów, zwraca wynik 0 lub 1
+
+{
+
+	if(KEY_DOWN2)					// klawisz wciśnięty?
+
+	{
+
+		_delay_ms(80);				// czas drgania styków
+
+		if(KEY_DOWN2) return 1;		// jeśli wciśnięty zakończ funkcję - rezultat = 1
+
+	}
+
+
+  return 0;							// jeśli niewciśnięty zakończ funkcję - rezultat = 0
+
+}
+
